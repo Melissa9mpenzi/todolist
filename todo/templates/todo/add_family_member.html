@@ -1,0 +1,21 @@
+{% extends "todo/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'todo/css/forms_styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="custom-form">
+ <h1>Add Family Member</h1>
+ <form method="POST">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <br>
+    <button type="submit" class="btn btn-primary">Add Member</button>  <!-- Add button here -->
+ </form>
+</div>
+{% endblock  %}
